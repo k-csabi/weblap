@@ -1,0 +1,9 @@
+<!ELEMENT album (cim,zenek)>
+<!ELEMENT cim (szerzo,a_nev,ev)>
+<!ELEMENT szerzo (#PCDATA)>
+<!ELEMENT nev (#PCDATA)>
+<!ELEMENT a_nev (#PCDATA)>
+<!ELEMENT ev (#PCDATA)>
+<!ELEMENT zenek (zene*)>
+<!ELEMENT zene (nev,hossz)>
+<!ELEMENT hossz (#PCDATA)>

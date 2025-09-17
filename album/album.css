@@ -1,0 +1,66 @@
+album{
+    display: block;
+    border:solid thin black;
+    padding: 0.5em;
+    width: fit-content;
+    margin: 1em auto;
+    border-radius: 0.5em;
+    box-shadow: 0.5em 0.5em 0.5em gray;
+    counter-reset: x;
+}
+
+szerzo,a_nev,ev{
+    display: inline-block;
+    font-size: x-large;
+    margin-bottom: 0.5em;
+}
+
+zenek{
+    display: table;
+    width: 100%;
+}
+
+zene{
+    display: table-row;
+    counter-increment:x;
+    padding: 1em;
+}
+nev, hossz{
+    display: table-cell;
+    padding: 0.5em;
+}
+
+hossz{
+    text-align: right;
+}
+
+zene:nth-child(odd){
+    background-color:lightgray;
+}
+
+zene:nth-child(even){
+    background-color: white;
+}
+
+nev::before{
+    content: counter(x) ". ";
+    margin-left: 1em;
+}
+
+ev::before{
+    content: "(";
+}
+
+ev::after{
+    content: ")";
+}
+
+zene:hover{
+    background-color: yellow;
+    font-weight: bold;
+}
+
+
+
+
+

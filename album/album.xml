@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="album.css" type="text/css"?>
+<!DOCTYPE album SYSTEM "album.dtd">
+
+<album>
+    <cim>
+        <szerzo>Steven Wilson</szerzo>
+        <a_nev>Hand. Cannot. Erase. </a_nev>
+        <ev>2015</ev>
+    </cim>
+    <zenek>
+        <zene>
+            <nev>First Regret</nev>
+            <hossz>2:01</hossz>
+        </zene>
+
+        <zene>
+            <nev>3 Years Older</nev>
+            <hossz>10:18</hossz>
+        </zene>
+
+        <zene>
+            <nev>Hand Cannot Erase</nev>
+            <hossz>4:13</hossz>
+        </zene>
+
+        <zene>
+            <nev>Perfect Life</nev>
+            <hossz>4:43</hossz>
+        </zene>
+
+        <zene>
+            <nev>Routine</nev>
+            <hossz>8:58</hossz>
+        </zene>
+
+        <zene>
+            <nev>Home Invasion</nev>
+            <hossz>6:24</hossz>
+        </zene>
+
+        <zene>
+            <nev>Regret #9</nev>
+            <hossz>5:01</hossz>
+        </zene>
+
+        <zene>
+            <nev>Transience</nev>
+            <hossz>2:45</hossz>
+        </zene>
+
+        <zene>
+            <nev>Ancestral</nev>
+            <hossz>13:30</hossz>
+        </zene>
+
+        <zene>
+            <nev>Happy Returns</nev>
+            <hossz>6:00</hossz>
+        </zene>
+
+        <zene>
+            <nev>Ascendant Here OnâŚ</nev>
+            <hossz>1:54</hossz>
+        </zene>
+    </zenek>
+</album>
