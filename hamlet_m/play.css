@@ -1,0 +1,87 @@
+/* a * az az univerzális szelektor, minden elemre vonatkozó kiválasztás. */
+* { 
+    display: block;/*az ilyen elem új sorban kezdődik, és felveszi a elérhető képernyőszélességet.*/
+}
+
+/* > gyermekelem jelzésére,  a line elem stagedir gyerekeire alkalmazzuk a szabályt*/
+line > stagedir {
+    display: inline;/*ugyanabban a sorban jelenik meg, mint ahol elhelyeztük, se a height, 
+    se a width ilyen elemeken nem tesz módosítást, alsó felső margót sem enged meg.*/
+}
+
+play {
+    background-color: white;
+    font-family: Palatino, Times, serif;
+    padding: 1em;
+}
+
+author, title {
+    font-variant: small-caps;
+    text-align: center;
+}
+
+author, play > title {
+    letter-spacing: 0.1em;
+    font-weight: bold;
+}
+
+play > title {
+    font-size: xx-large;
+    margin-top: 0.5em;
+}
+
+author, act > title {
+    font-size: x-large;
+}
+
+scene > title {
+    background-color: slateblue;
+    box-shadow: 0.25em 0.25em 0.5em gray;
+    color: white;
+    font-size: large;
+    padding: 0.5em;
+}
+
+act {
+    border-top: medium solid black;
+    margin-top: 1em;
+    padding-top: 1em;
+}
+
+scene {
+    padding-top: 1em;
+}
+
+speech, scene > stagedir {
+    margin-top: 1em;
+}
+
+stagedir {
+    color: gray;
+    font-style: italic;
+}
+/* : pszeudo osztályokat jelent, míg a :: pszeudo elemeket. 
+A pszeudo osztályokat akkor használjuk, ha valamilyen állapotban lévő elemmel akarunk csinálni valamit. 
+pl.: hover, active, focus, or disabled. Sok esetben valamilyen felhasználói interakcióra vonatkozó.
+pszeudo elemek: 
+Arra használjuk, hogy egy adott elem bizonyos részéhez tudjunk megadni stílust. pl.: egy szöveg első betűjére, sorára.*/
+stagedir::before {
+    content: "("; /*A stagedir elemek elé (-et teszünk.*/
+}
+
+stagedir::after {
+    content: ")";
+}
+
+speech > line, speech > stagedir {
+    margin-left: 1em;
+}
+
+scene > stagedir {
+    text-align: center;
+}
+
+speaker {
+    font-weight: bold;
+    text-transform: uppercase;
+}

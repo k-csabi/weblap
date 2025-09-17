@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<!ELEMENT play (author,title,act*)>
+<!ELEMENT author (#PCDATA)> 
+<!ELEMENT title (#PCDATA)>
+<!ELEMENT act (title,scene*)> <!--Itt a csillag csak a scene-re vonatkozik.-->
+<!ELEMENT scene (title, (speech | stagedir)* )> <!--(speech | stagedir)* akárhányszor szerepelhet a scenebe, akármilyen sorrendben-->
+<!ELEMENT stagedir (#PCDATA)>
+<!ELEMENT speech (speaker, (line | stagedir)* )> <!--Itt viszont a * a ()-es tag-ekre vonatkozik. -->
+<!ELEMENT speaker (#PCDATA)>
+<!ELEMENT line (#PCDATA | stagedir)*> <!--vegyes tartalmú elem: elem és szöveg felváltva. vagy megadása: | -->
