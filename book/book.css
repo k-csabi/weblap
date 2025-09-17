@@ -1,0 +1,104 @@
+@import url("https://fonts.googleapis.com/css2?family=EB+Garamond");
+@import url("https://fonts.googleapis.com/css2?family=Anton");
+
+book, author, title, chapter, para {
+    display: block;
+}
+
+book {
+    counter-reset: chapter-number footnote-number; /*2 db számláló létrehozása a gyökérelemben, 
+    a fejezetek és lábjegyzetek számának későbbi automatikus növeléséhez.*/
+    background-color: #F8F8F8;
+    font-family: "EB Garamond", Times, serif;
+    /*mértékegységek: abszolút pl.: px, cm, relatív az em, rem. 
+    A CSS-ben a rem egy olyan mértékegység, amely a gyökérelem betűméretét jelenti. 
+    Az 1rem megegyezik a html elem betűméretével, amelynek a legtöbb böngészőben az alapértelmezett értéke 16px.*/
+    padding-top: 1rem;
+}
+a{
+    font-size: xx-large;
+    font-weight: bold;
+}
+
+author, title {
+    text-align: center;
+    font-family: Anton, sans-serif;
+}
+
+author {
+    font-size: 2rem;
+}
+
+book > title {
+    font-size: 4rem;
+
+}
+
+author, book > title {
+    font-variant: small-caps;
+    letter-spacing: 0.1em;
+}
+
+chapter {
+    margin: 0.5em;
+}
+/*lényegében testvérszelektor azt jelenti, hogy minden olyan fejezetet kiválasztunk, amelyet egy title elem meg fog előzni.
+Azaz ha a címre van rákövetkezően egy fejezet, azokra beállítja ezt a stílust.*/
+title + chapter {
+    border-top: thin solid black;
+    padding-top: 1em;
+}
+
+chapter > title {
+    font-size: x-large;
+    text-decoration: underline;
+}
+/*A counter() segítségével tudjuk kiolvasni a fejezetszámot, amit római betűkkel akarunk megjeleníteni, 
+és ezek végéhez az " " segítségével hozzáfűzünk mindig egy pontot. */
+chapter > title::before { 
+    content: "Chapter " counter(chapter-number, upper-roman) "\2014";
+    counter-increment: chapter-number; /*Számok növelése az incrementtel*/
+}
+
+para {
+    padding: 0.5em;
+    text-indent: 1em; /*Sor behúzása*/
+}
+
+title + para {
+    text-indent: 0; 
+}
+
+title + para::first-letter {
+    font-size: 1.5em;
+}
+
+para:hover {
+    background-color: slateblue;
+    color: white;
+}
+
+/*footnote tartalma nem fog alapvetően látszódni, hiszen 0 a betűméret.
+super: felsőindexet jelent. */
+footnote {
+    display: inline;
+    vertical-align: super;
+    font-size: 0;
+}
+
+footnote::before {
+    content: "[" counter(footnote-number) "]";
+    counter-increment: footnote-number;
+    font-size: small;
+}
+/*footnote meg fog jelenni, ha felévisszük az egeret,mert itt a betűméretet átállítjuk large-ra.*/
+footnote:hover {
+    background-color: tomato;
+    font-size: large;
+    padding: 0.5em;
+}
+
+footnote:hover::before {
+    content: "[" counter(footnote-number) "] ";
+    font-size: large;
+}
