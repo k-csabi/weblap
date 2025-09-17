@@ -1,0 +1,21 @@
+<!ELEMENT movies (movie*)>
+<!ELEMENT movie (title+, year, genre+, rating, votes)>
+
+<!--
+Két attribútuma van/lehet a movienak.
+Kötelezően kell egy id,
+és opcionális (#IMPLIED) az mp-rating használata, ahol az attribútum értékei a ()-ben felsoroltak lehetnek csak.
+-->
+<!ATTLIST movie
+    id CDATA #REQUIRED
+    mpa-rating (G|NC-17|PG|PG-13|R) #IMPLIED>
+
+<!ELEMENT title (#PCDATA)>
+<!--NMTOKEN: name token (névszó), amely: számokat, betűket, : _ - . -ot tartalmazhat, de pl. space karaktert nem. -->
+<!ATTLIST title
+    xml:lang NMTOKEN #REQUIRED>
+
+<!ELEMENT year (#PCDATA)>
+<!ELEMENT genre (#PCDATA)>
+<!ELEMENT rating (#PCDATA)>
+<!ELEMENT votes (#PCDATA)>

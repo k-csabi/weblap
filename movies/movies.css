@@ -1,0 +1,76 @@
+movies {
+    background-color: mintcream;
+    display: block;
+    font-family: sans-serif;
+    margin: 1em;
+}
+
+movie {
+    display: list-item;
+    list-style-type: disc;
+    margin-left: 2em;
+    padding: 0.25em;
+}
+
+title {
+    display: none; /*Elrejtjük az összes címet az oldalról, semmilyen nyelv nem jelenik meg.*/
+}
+
+/*:lang pszeudo osztály, kiválasztja azokat a címeket, amelyre illeszkedik, hogy en, azaz angol nyelvű.*/
+title:lang(en) {
+    display: inline;
+}
+
+year::before {
+    content: "(";
+}
+
+year::after {
+    content: "):";
+}
+
+genre, rating, movie:hover::after {
+    color: white;
+    border-radius: 0.25em;
+    padding: 0.25em;
+}
+
+genre {
+    background-color: blueviolet;
+    display: inline-block;
+    text-align: center;
+    width: 5em;
+}
+
+rating {
+    background-color: hotpink;
+}
+
+rating::after {
+    content: "/10";
+}
+
+votes::before {
+    content: " from ";
+}
+
+votes::after {
+    content: " ratings";
+}
+
+movie:hover::after {
+    background-color: gold;
+    color: blueviolet;
+    content: "https://www.imdb.com/title/tt" attr(id); /*Az id lekérdezése xml-ből, attr() segítségével.*/
+    font-size: large;
+}
+
+/*
+A movie elemnek ha az mpa-rating attribútuma R vagy NC-17, akkor a movie-n belül kiválasztjuk a title és year elemet,
+és piros, félkövér betűssé tesszük.
+Az :is() hosszú selectorok írását könnyíti meg lásd: https://developer.mozilla.org/en-US/docs/Web/CSS/:is
+*/
+movie:is([mpa-rating=R], [mpa-rating=NC-17]) > :is(title, year) {
+    color: red;
+    font-weight: bold;
+}
